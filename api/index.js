@@ -2,7 +2,13 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const axios = require('axios');
+const dotenv = require('dotenv');
+// const {conn} = require('sequelize')
 const cors = require("cors");
+dotenv.config();
+
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 app.use(cors());
 
@@ -43,6 +49,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const port = process.env.PORT || 3001
+
 
 app.listen(port, () => {
   console.log(`Server Running at ${port}`)

@@ -25,7 +25,7 @@ function LandingPage() {
         }
         formData.append("file", files[0]);
     
-        axios.post('/api/video/uploadfiles', formData, config)
+        axios.post('/uploadfiles', formData, config)
         console.log('llego hasta aca')
         .then(response => {
             console.log(response, 'response')
@@ -37,7 +37,7 @@ function LandingPage() {
     
                 setFilePath(response.data.url)
     
-                axios.post('/api/video/thumbnail', variable)
+                axios.post('/thumbnail', variable)
                     .then(response => {
                         if (response.data.success) {
     
